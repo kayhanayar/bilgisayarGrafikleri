@@ -21,12 +21,30 @@ void GuiControl::createFrame()
     ImGui_ImplGlfw_NewFrame();
     ImGui::NewFrame();
 }
+
+void GuiControl::setAngle(float *angle)
+{
+    this->angle = angle;
+}
+void GuiControl::setPos(glm::vec2* pos)
+{
+    this->vecPos = pos;
+}
 void GuiControl::createFrameItems()
 {
     ImGui::Begin("imgui penceresi");
+    ImGui::SliderFloat("dondurme",angle,0,360);
+    ImGui::SliderFloat2("hareket",(float*)vecPos,-1.0f,1.0f);
+
+    ImGui::RadioButton("Kare",&secilenSekil,0);ImGui::SameLine();
+    ImGui::RadioButton("Daire",&secilenSekil,1);ImGui::SameLine();
+    ImGui::RadioButton("Altigen",&secilenSekil,2);ImGui::SameLine();
+    ImGui::RadioButton("Ucgen",&secilenSekil,3);   
+
     if(ImGui::Button("Tikla Beni"))
     {
-        std::cout<<"tikladin"<<std::endl;
+
+        tiklaSekilOlustur((SHAPETYPE)secilenSekil);
     }
     ImGui::End();
 }

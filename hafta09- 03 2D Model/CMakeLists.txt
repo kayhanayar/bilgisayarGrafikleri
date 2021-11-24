@@ -26,8 +26,10 @@ set(PROJECT_SOURCES ${PROJECT_SOURCE_DIR}/UtilityFuncitons.cpp
                     ${PROJECT_SOURCE_DIR}/FileLoader.cpp
                     ${PROJECT_SOURCE_DIR}/ShaderProgram.cpp             
                     ${PROJECT_SOURCE_DIR}/GuiControl.cpp       
-                    ${PROJECT_SOURCE_DIR}/Model2D.cpp                        
-                    ${PROJECT_SOURCE_DIR}/Timer.cpp                                                
+                    ${PROJECT_SOURCE_DIR}/Timer.cpp    
+                    ${PROJECT_SOURCE_DIR}/Mesh2D.cpp        
+                    ${PROJECT_SOURCE_DIR}/MeshManager.cpp        
+                    ${PROJECT_SOURCE_DIR}/VertexArrayObject.cpp                                                    
                     ${PROJECT_SOURCE_DIR}/glad.c
                     ${IMGUI_SOURCEFILES}
                     )
