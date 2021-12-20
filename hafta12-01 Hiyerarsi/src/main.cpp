@@ -68,6 +68,21 @@ unsigned int loadTexture(std::string fileName)
     stbi_image_free(data);
     return id;
 }
+
+void mouse_callback(GLFWwindow* window, double xpos, double ypos)
+{
+    std::cout<<xpos<<","<<ypos<<std::endl;
+}
+void mouse_button_callback(GLFWwindow* window, int button, int action, int mods)
+{
+    if(button == GLFW_MOUSE_BUTTON_LEFT && action == GLFW_PRESS) 
+    {
+       double xpos, ypos;
+       //getting cursor position
+       glfwGetCursorPos(window, &xpos, &ypos);
+       cout << "Cursor Position at (" << xpos << " : " << ypos << endl;
+    }
+}
 void keyboard_callback(GLFWwindow* window,int key,int scanCode,int action,int mods)
 {
     if(key==GLFW_KEY_ESCAPE)
@@ -135,7 +150,8 @@ void initScene(GLFWwindow* window)
     programTexture.setCamera(camera);
     programColor.setCamera(camera); 
     imguiWindow.init(window);
-
+    glfwSetCursorPosCallback(window, mouse_callback);  
+    glfwSetMouseButtonCallback(window,mouse_button_callback);
     glEnable(GL_DEPTH_TEST);
     timer.start();
       
